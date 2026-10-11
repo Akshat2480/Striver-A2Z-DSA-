@@ -5,29 +5,29 @@ class Solution {
 public:
     vector<vector<int>> countFrequencies(vector<int>& nums) {
         unordered_map<int, int> hashed;
-        vector<vector<int>> answer;
+        vector<vector<int>> res;
 
-        for(auto it=nums.begin(); it!=nums.end(); it++){
-            hashed[*it] ++;
+        for(auto it : nums){
+            hashed[it]++;
         }
 
-        for(auto it=hashed.begin(); it!=hashed.end(); it++){
-            answer.push_back({(*it).first, (*it).second});
+        for(auto it : hashed){
+            res.push_back({it.first, it.second});
         }
 
-        return answer;
+        return res; 
     }
 };
 
 int main() {
-    vector<int> nums = {1,2,3,1,3,2,4,4,5,6};
-
+    vector<int> nums = {1,2,1,2,3,4,4,5};
     Solution s;
     vector<vector<int>> res = s.countFrequencies(nums);
 
-    for(auto it=res.begin(); it!=res.end(); it++){
-        cout<<(*it)[0]<<" "<<(*it)[1]<<endl;
+    for(auto it : res){
+        cout<<it[0]<<" : "<<it[1]<<endl;
     }
+    cout<<endl;
     
     return 0;
 }
