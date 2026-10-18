@@ -4,8 +4,6 @@ using namespace std;
 class Solution{	
 	public:		
 		bool palindromeCheck(string& s){
-            if(s.size()%2 != 0) return false;
-
             int left = 0;
             int right = s.size()-1;
 
