@@ -3,18 +3,18 @@ using namespace std;
 
 class Solution{	
 	public:		
-		bool palindromeCheck(string& s, int i){
-            if(i >= (s.length() / 2)) return true;
+		bool palindromeCheck(string& s, int left, int right){
+            if(left >= right) return true;
 
-            if(s[i] == s[s.length() - i - 1]) return palindromeCheck(s, i+1);
-            else return false;
+            if(s[left] != s[right]) return false;
+            return palindromeCheck(s, left+1, right-1);
 		}
 };
 
 int main() {
     string str = "aabbaa";
     Solution s;
-    bool res = s.palindromeCheck(str, 0);
-    cout<<res<<endl; 
+    bool res = s.palindromeCheck(str, 0, str.size()-1);
+    cout<<(res ? "True" : "False")<<endl; 
     return 0;   
 }
